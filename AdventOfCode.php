@@ -144,7 +144,7 @@
 		case 4:
 			if($argv[3] == 'example')
 			{
-				$AoC->RunDay(intval($argv[2]), intval($argv[1]), true);
+				$AoC->RunPart(intval($argv[2]), intval($argv[1]), true);
 			}
 			break;
 	}
