@@ -72,3 +72,7 @@ To use the example code instead of the actual input, argument `example` can be a
 - Answer for day 1 - Part 1: 1590491
 - Answer for day 1 - Part 2: 22588371
 --------------------------------------
+- Run day 2:
+- Answer for day 2 - Part 1: 236
+- Answer for day 2 - Part 2: 308
+--------------------------------------
