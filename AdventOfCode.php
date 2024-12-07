@@ -87,6 +87,7 @@
 			$class = 'AdventOfCode\Day'.sprintf("%02d", $day);
 			if(!class_exists($class, true))
 			{
+				print 'Day '.$this->_day.' skipped, class \''.$class.'\' not found.'.PHP_EOL;
 				return;
 			}
 
@@ -148,92 +149,3 @@
 			}
 			break;
 	}
-
-/*
-
-def runDay(day, part=None, runExample=False):
-
-	if(part != None):
-		print("- Run day %d - Part %d:" % (day, part))
-	else:
-		print("- Run day %d:" % (day))
-
-	directory = "day{:02d}".format(day)
-	if not os.path.exists("./"+directory):
-		print("Day %d skipped, dir '%s' not found" % (day, directory))
-		return
-
-	if not os.path.exists("./"+directory+"/day.py"):
-		print("Day %d skipped, file '%s/day.py' not found" % (day, directory))
-		return
-
-	if runExample == True:
-		if not os.path.exists("./"+directory+"/example.txt"):
-			print("Day %d skipped, file '%s/example.txt' not found" % (day, directory))
-			return
-	else:
-		if not os.path.exists("./"+directory+"/input.txt"):
-			print("Day %d skipped, file '%s/input.txt' not found" % (day, directory))
-			return
-
-	module = "day{:02d}.day".format(day)
-
-	try:
-		moduleObj = __import__(module)
-		submodule = getattr(moduleObj, 'day')    # returns the module object "modules.update"
-		puzzle = getattr(submodule, 'puzzle')    # returns the module object "modules.update"
-
-	except ImportError:
-		return
-
-	# Open text file in read mode and read puzzle input
-	#
-	if runExample == True:
-		input_file = open("./"+directory+"/example.txt", "r")
-	else:
-		input_file = open("./"+directory+"/input.txt", "r")
-
-	puzzle_input = input_file.read().strip()
-	input_file.close()
-
-	if puzzle_input == "":
-		print("Day %d skipped, input from file was empty" % (day, directory))
-		return
-
-	puzzle = puzzle()
-	puzzle.setInput(puzzle_input)
-	puzzle.handleInput()
-
-def runPart(day, part, runExample=False):
-	return runDay(day, part, runExample)
-
-def checkAnswer(day, part, answer):
-
-	answers = {
-		1: {1: 75501, 2: 215594},
-		2: {1: 14163, 2: 12091}
-	}
-
-	return None
-
-if __name__ == "__main__":
-
-	print("--- Advent Of Code 2022 ---")
-
-	if len(sys.argv) == 1:
-		runAll()
-	
-	elif len(sys.argv) == 2:
-		runDay(int(sys.argv[1]))
-
-	elif len(sys.argv) == 3:
-		if sys.argv[2] == "example":
-			runDay(int(sys.argv[1]), None, True)
-		else:
-			runPart(int(sys.argv[1]), int(sys.argv[2]))
-
-	elif len(sys.argv) == 4:
-		if sys.argv[3] == "example":
-			runPart(int(sys.argv[1]), int(sys.argv[2]), True)
-
-*/

@@ -68,3 +68,7 @@ To use the example code instead of the actual input, argument `example` can be a
 		  \/_____/   \/___/ \/_____/     \/_/  
                                                         
 -----------------------------------------------------------------
+- Run day 1:
+- Answer for day 1 - Part 1: 1590491
+- Answer for day 1 - Part 2: 22588371
+--------------------------------------
