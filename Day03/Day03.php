@@ -92,7 +92,6 @@
 
 			if(preg_match_all('/mul\((\d+),(\d+)\)/m', $string, $matches, PREG_SET_ORDER, 0))
 			{
-				print_r($matches);
 				foreach($matches as $k => $match)
 				{
 					$multiplications += ($match[1] * $match[2]);
