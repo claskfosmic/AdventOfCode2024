@@ -5,33 +5,54 @@
 	class Day
 	{
 		private $_calledClass = '';
-		private $_day = 0;
 		public $Input = '';
+		public $InputPart1 = '';
+		public $InputPart2 = '';
 
 		public function __construct(bool $useExampleInput=false)
 		{
 			$this->_calledClass = str_replace('AdventOfCode\\', '', get_called_class());
-			$this->_day = intval(str_replace('Day', '', $this->_calledClass));
 
-			$this->ReadInput($useExampleInput);
+			$inputFile = './'.$this->_calledClass.'/'.($useExampleInput?'example':'input').'.txt';
+			$input = $this->ReadInput($inputFile);
+			if(($input !== null) && ($input !== ''))
+			{
+				$this->Input = $input;
+				$this->InputPart1 = $input;
+				$this->InputPart2 = $input;
+			}
+
+			$inputFilePart1 = './'.$this->_calledClass.'/'.($useExampleInput?'example':'input').'-part1.txt';
+			$inputFilePart2 = './'.$this->_calledClass.'/'.($useExampleInput?'example':'input').'-part2.txt';
+
+			$inputPart1 = $this->ReadInput($inputFilePart1);
+			$inputPart2 = $this->ReadInput($inputFilePart2);
+			
+			if(($inputPart1 !== null) && ($inputPart1 !== ''))
+			{
+				$this->Input = $inputPart1;
+				$this->InputPart1 = $inputPart1;
+			}
+
+			if(($inputPart2 !== null) && ($inputPart2 !== ''))
+			{
+				$this->InputPart2 = $inputPart2;
+			}
 		}
 
-		public function ReadInput(bool $useExampleInput=false) : bool
+		public function ReadInput(string $inputFile) : ?string
 		{
-			$inputFile = $this->_calledClass.'/'.($useExampleInput?'example':'input').'.txt';
 			if(realpath($inputFile) === false)
 			{
-				print 'Day '.$this->_day.' skipped, file \''.$inputFile.'\' not found.'.PHP_EOL;
-				return false;
+				// print 'Day '.$this->_day.' skipped, file \''.$inputFile.'\' not found.'.PHP_EOL;
+				return null;
 			}
 
 			if(filesize($inputFile) == 0)
 			{
-				print 'Day '.$this->_day.' skipped, file \''.$inputFile.'\' is empty.'.PHP_EOL;
-				return false;
+				return null;
 			}
 
-			$this->Input = trim(file_get_contents($inputFile));
-			return ($this->Input != '');
+			return trim(file_get_contents($inputFile));
 		}
 	}

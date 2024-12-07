@@ -92,20 +92,27 @@
 			}
 
 			$puzzle = new $class($useExampleInput);
-			if($puzzle->Input != '')
+			if(($puzzle->InputPart1 == '') && ($puzzle->InputPart2 == ''))
 			{
-				$puzzle->HandleInput();
-				if(($part == 0) || ($part == 1))
+				print 'Day '.$this->_day.' skipped, inputFile not found or empty.'.PHP_EOL;
+				return;
+			}
+
+			if(($part == 0) || ($part == 1))
+			{
+				$puzzle->HandleInput($part);
+				$answer = $puzzle->Part1();
+				print '- Answer for day '.$day.' - Part 1: '.$answer.PHP_EOL;
+			}
+			
+			if(($part == 0) || ($part == 2))
+			{
+				if($puzzle->InputPart2 != $puzzle->InputPart1)
 				{
-					$answer = $puzzle->Part1();
-					print '- Answer for day '.$day.' - Part 1: '.$answer.PHP_EOL;
+					$puzzle->HandleInput($part);
 				}
-				
-				if(($part == 0) || ($part == 2))
-				{
-					$answer = $puzzle->Part2();
-					print '- Answer for day '.$day.' - Part 2: '.$answer.PHP_EOL;
-				}
+				$answer = $puzzle->Part2();
+				print '- Answer for day '.$day.' - Part 2: '.$answer.PHP_EOL;
 			}
 
 			print '--------------------------------------'.PHP_EOL;
