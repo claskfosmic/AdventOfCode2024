@@ -107,7 +107,7 @@
 			
 			if(($part == 0) || ($part == 2))
 			{
-				if($puzzle->InputPart2 != $puzzle->InputPart1)
+				if((($part == 0) && ($puzzle->InputPart2 != $puzzle->InputPart1)) || ($part == 2))
 				{
 					$puzzle->HandleInput($part);
 				}
