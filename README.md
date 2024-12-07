@@ -1,4 +1,4 @@
-# Advent Of Code 2022
+# Advent Of Code 2024
 Joining the [Advent of Code](https://adventofcode.com/2024/) this year. Started a little late, so deciced to write everything in PHP to catch up and try to complate all puzzles this year.
 
 For each day, I'll add an directory, called dayXX, with the following files:
