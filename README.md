@@ -76,3 +76,11 @@ To use the example code instead of the actual input, argument `example` can be a
 - Answer for day 2 - Part 1: 236
 - Answer for day 2 - Part 2: 308
 --------------------------------------
+- Run day 3:
+- Answer for day 3 - Part 1: 167650499
+- Answer for day 3 - Part 2: 95846796
+--------------------------------------
+- Run day 4:
+- Answer for day 4 - Part 1: 2618
+- Answer for day 4 - Part 2: 2011
+--------------------------------------
